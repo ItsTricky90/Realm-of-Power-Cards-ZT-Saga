@@ -1,0 +1,18 @@
+# Input handling
+var move_direction = Vector3()
+if Input.is_action_pressed("move_right"):
+    move_direction += transform.basis.x
+if Input.is_action_pressed("move_left"):
+    move_direction -= transform.basis.x
+if Input.is_action_pressed("move_back"):
+    move_direction += transform.basis.z
+if Input.is_action_pressed("move_forward"):
+    move_direction -= transform.basis.z
+
+# Normalize the direction to prevent faster diagonal movement
+move_direction = move_direction.normalized()
+
+# Apply the movement direction
+var motion = move_direction * speed
+
+# Rest of the code remains the same...
